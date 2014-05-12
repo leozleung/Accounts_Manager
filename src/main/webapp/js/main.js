@@ -6,6 +6,7 @@ window.Router = Backbone.Router.extend({
         "account/add": "addAccount",
         "accounts/page/:page": "accountsList",
         "account/:id": "accountDetails",
+        "ingate": "inGate",
     },
 
     initialize: function () {
@@ -60,6 +61,11 @@ window.Router = Backbone.Router.extend({
         $('#content').html(new DetailsView({model: account}).el);
         //$('#deleteAccountButton').prop('disabled', true);
         $('#deleteAccountButton').hide();  
+        this.headerView.select('add-menu');
+	},
+	
+	inGate: function() {
+        $('#content').html(new InGateView().el);
         this.headerView.select('add-menu');
 	},
     
